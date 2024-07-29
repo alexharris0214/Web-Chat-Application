@@ -1,14 +1,30 @@
 import React from "react";
+import { ConversationCard } from "./ConversationCard";
 
 export const SideChatWindow = () => {
     return (
-        <div className="d-flex flex-column vh-100 bg-dark text-white p-3" style={{ minWidth: '250px' }}>
-            <div className="sidebar-heading">My Website</div>
+        <div className="d-flex flex-column vh-100 text-white p-3" style={{ minWidth: '350px',  borderRight: '2px solid black' }}>
             <div className="list-group list-group-flush">
-                <a href="#home" className="list-group-item list-group-item-action bg-dark text-white">Home</a>
-                <a href="#services" className="list-group-item list-group-item-action bg-dark text-white">Services</a>
-                <a href="#clients" className="list-group-item list-group-item-action bg-dark text-white">Clients</a>
-                <a href="#contact" className="list-group-item list-group-item-action bg-dark text-white">Contact</a>
+                <ConversationCard
+                    firstName = "DummyFirstName"
+                    lastName = "DummyLastName"
+                    mostRecentMessage = "This is a sample of the most recent message sent by dummy blah blah blah"
+                />
+                <ConversationCard
+                    firstName = "DummyFirstName"
+                    lastName = "DummyLastName"
+                    mostRecentMessage = "This is a sample of the most recent message sent by dummy blah blah blah"
+                />
+                <ConversationCard
+                    firstName = "DummyFirstName"
+                    lastName = "DummyLastName"
+                    mostRecentMessage = "This is a sample of the most recent message sent by dummy blah blah blah"
+                />
+                <ConversationCard
+                    firstName = "DummyFirstName"
+                    lastName = "DummyLastName"
+                    mostRecentMessage = "This is a sample of the most recent message sent by dummy blah blah blah"
+                />
             </div>
         </div>
     );

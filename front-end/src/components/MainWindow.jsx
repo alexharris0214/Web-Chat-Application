@@ -5,6 +5,9 @@ export const MainWindow = () => {
         <div className="container-fluid">
             <h1 className="mt-4">Welcome to My Website</h1>
             <p>Some content here...</p>
+            <div className='card' style={{ minHeight: '80%'}}>
+                
+            </div>
         </div>
     );
 };
