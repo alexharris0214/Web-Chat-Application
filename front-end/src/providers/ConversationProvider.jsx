@@ -16,7 +16,49 @@ const ConversationProvider = ({ children }) => {
                         recipientId: "412342987",
                         senderId: "41234213",
                         timeStamp: "sample TimeStapm"
-                    }
+                    },
+                    {
+                        text:"dummy conversation text11",
+                        recipientId: "412342987",
+                        senderId: "41234213",
+                        timeStamp: "sample TimeStapm"
+                    },
+                    {
+                        text:"dummy conversation text11",
+                        recipientId: "412342987",
+                        senderId: "41234213",
+                        timeStamp: "sample TimeStapm"
+                    },
+                    {
+                        text:"dummy conversation text11",
+                        recipientId: "412342987",
+                        senderId: "41234213",
+                        timeStamp: "sample TimeStapm"
+                    },
+                    {
+                        text:"dummy conversation text11",
+                        recipientId: "412342987",
+                        senderId: "41234213",
+                        timeStamp: "sample TimeStapm"
+                    },
+                    {
+                        text:"dummy conversation text11",
+                        recipientId: "412342987",
+                        senderId: "41234213",
+                        timeStamp: "sample TimeStapm"
+                    },
+                    {
+                        text:"dummy conversation text11",
+                        recipientId: "412342987",
+                        senderId: "41234213",
+                        timeStamp: "sample TimeStapm"
+                    },
+                    {
+                        text:"dummy conversation text11",
+                        recipientId: "412342987",
+                        senderId: "41234213",
+                        timeStamp: "sample TimeStapm"
+                    },
                 ]
             },
             {
