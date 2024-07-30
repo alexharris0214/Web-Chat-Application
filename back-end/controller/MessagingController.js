@@ -1,5 +1,6 @@
 import ConversationsModel from "../models/Conversations.js"
 import UserModel from "../models/Users.js"
+import { getUsersForConversation } from "../utils/MessagingUtils.js"
 export const insertMessage = async (req, res) => {
     const data = 
         {
@@ -34,26 +35,21 @@ export const getConversations = async (req, res) => {
     const userId = req.body.userId;
 
     try {
-        // Find the user and get their conversation IDs
         const userModel = await UserModel.findById(userId);
         const conversationIds = userModel.conversationIds;
-
-        // Use map to create an array of promises for fetching conversations
         const conversationPromises = conversationIds.map(async (conversationId) => {
-            // Fetch each conversation by ID
             return await ConversationsModel.findById(conversationId);
         });
-
-        // Wait for all promises to resolve
-        const conversations = await Promise.all(conversationPromises);
-
-        // Log the conversations
-        console.log(conversations);
-
-        // Send the conversations in the response
-        res.send(conversations);
+        let conversations = await Promise.all(conversationPromises);
+        conversations = conversations.map(async (conversation) => {
+            const userModels = await getUsersForConversation(conversation._id)
+            let conversationObj = conversation.toObject();
+            conversationObj["userModels"] = await userModels; 
+            return await conversationObj;
+        })
+        let conversation = await Promise.all(conversations)
+        res.send(conversation);
     } catch (err) {
-        // Log the error
         console.log(err);
         res.status(500).send('Server Error');
     }
