@@ -1,22 +1,21 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
-import { NavBar } from "./components/NavBar";
-import { SideChatWindow } from "./components/SideChatWindow";
-import { MainWindow } from "./components/MainWindow";
-import { ConversationProvider } from "./providers/ConversationProvider";
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import { HomePage } from "./components/HomePage";
+import { LoginPage } from "./components/LoginPage";
+import { RegisterPage } from "./components/RegisterPage";
 
 function App() {
   return (
-    <>
-      <NavBar />
-      <div className="d-flex">
-        <ConversationProvider>
-          <SideChatWindow />
-          <MainWindow />
-        </ConversationProvider>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element = {<LoginPage/>}/>
+        <Route path="/register" element = {<RegisterPage/>}/>
+        <Route path="/home" element={<HomePage/>}/>
+      </Routes>
+    </BrowserRouter>
+    
   );
 }
 
