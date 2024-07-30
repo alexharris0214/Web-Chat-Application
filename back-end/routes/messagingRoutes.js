@@ -1,7 +1,7 @@
 import { Router } from 'express';
 const router = Router();
-import {insertMessage } from '../controller/MessagingController.js';
+import {insertMessage, getConversations } from '../controller/MessagingController.js';
 
-router.get('/insert-message', insertMessage);
-
+router.post('/insert-message', insertMessage);
+router.get('/get-convos', getConversations )
 export default router;

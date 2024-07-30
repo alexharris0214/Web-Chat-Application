@@ -3,6 +3,8 @@ import React, { createContext, useState } from "react";
 const ConversationContext = createContext();
 
 const ConversationProvider = ({ children }) => {
+    const userId = "66a908eee5971a9476698682"
+    
     const [selectedConversationIndex, setSelectedConversationIndex] = useState(0)
     const contextValues = {
         conversations:[

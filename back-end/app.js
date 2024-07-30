@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 import connectDB from './utils/DbConnect.js';
 import messagingRoutes from './routes/messagingRoutes.js'
-import userRoutes from '../routes/userRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 
 connectDB()
 

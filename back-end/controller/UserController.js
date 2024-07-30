@@ -1,4 +1,4 @@
-import UserModel from "../models/Users";
+import UserModel from "../models/Users.js";
 
 export const createUser = async (req, res) => {
     const body = req.body
@@ -16,7 +16,23 @@ export const createUser = async (req, res) => {
     }
     const userModel = UserModel(userData)
     try{
-        userModel.save()
+        await userModel.save()
+    } catch(err){
+        console.log(err)
+    }
+}
+
+export const login = async (req, res) => {
+    const email = req.body.email
+    const password = req.body.password
+
+    try{
+        const userModel = await UserModel.findOne({email: email})
+        console.log(userModel)
+        if(userModel.password === password){
+            res.send(userModel._id)
+        }
+        console.log(userModel)
     } catch(err){
         console.log(err)
     }
