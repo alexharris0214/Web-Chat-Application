@@ -40,15 +40,28 @@ export const getConversations = async (req, res) => {
         const conversationPromises = conversationIds.map(async (conversationId) => {
             return await ConversationsModel.findById(conversationId);
         });
+
         let conversations = await Promise.all(conversationPromises);
         conversations = conversations.map(async (conversation) => {
-            const userModels = await getUsersForConversation(conversation._id)
+            let userModels = await getUsersForConversation(conversation._id)
+            userModels = userModels.filter(userModel => {
+                return userModel._id != userId
+            })
+            userModels = userModels.map(userModel => {
+                return(
+                    {
+                        _id: userModel._id,
+                        firstName: userModel.firstName,
+                        lastName: userModel.lastName,
+                    }
+                )
+            })
             let conversationObj = conversation.toObject();
-            conversationObj["userModels"] = await userModels; 
+            conversationObj["userModels"] = userModels[0];
             return await conversationObj;
         })
-        let conversation = await Promise.all(conversations)
-        res.send(conversation);
+        conversations = await Promise.all(conversations)
+        res.send(conversations);
     } catch (err) {
         console.log(err);
         res.status(500).send('Server Error');
