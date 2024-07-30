@@ -8,11 +8,11 @@ const ConversationProvider = ({ children }) => {
         conversations:[
             {
                 id:"42139087123",
-                firstName:"dummyFirstName",
-                lastName:"dummyLastName",
+                firstName:"dummyFirstName1",
+                lastName:"dummyLastName1",
                 messages:[
                     {
-                        text:"dummy conversation text",
+                        text:"dummy conversation text11",
                         recipientId: "412342987",
                         senderId: "41234213",
                         timeStamp: "sample TimeStapm"
@@ -21,11 +21,11 @@ const ConversationProvider = ({ children }) => {
             },
             {
                 id:"42139087123",
-                firstName:"dummyFirstName",
-                lastName:"dummyLastName",
+                firstName:"dummyFirstName2",
+                lastName:"dummyLastName2",
                 messages:[
                     {
-                        text:"dummy conversation text",
+                        text:"dummy conversation text22",
                         recipientId: "412342987",
                         senderId: "41234213",
                         timeStamp: "sample TimeStapm"
@@ -34,11 +34,11 @@ const ConversationProvider = ({ children }) => {
             },
             {
                 id:"42139087123",
-                firstName:"dummyFirstName",
-                lastName:"dummyLastName",
+                firstName:"dummyFirstName3",
+                lastName:"dummyLastName3",
                 messages:[
                     {
-                        text:"dummy conversation text",
+                        text:"dummy conversation text33",
                         recipientId: "412342987",
                         senderId: "41234213",
                         timeStamp: "sample TimeStapm"
