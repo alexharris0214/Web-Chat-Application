@@ -4,14 +4,14 @@ import { ConversationContext } from "../providers/ConversationProvider";
 
 export const ConversationCard = ({firstName, lastName, mostRecentMessage, index}) => {
 
-    const {setSelectedConversationIndex, selectedConversationIndex} = useContext(ConversationContext)
+    const {setSelectedConversationIndex} = useContext(ConversationContext)
     
     const handleOnClick = () => {
         setSelectedConversationIndex(index)
     }
     return (
         <>
-            <div className="card" style={{margin:10}} onClick={handleOnClick}>
+            <div className="card" style={{padding:20, alignContent:"center"}} onClick={handleOnClick}>
                 <p>{`${firstName}, ${lastName}`}</p>
                 <p>{mostRecentMessage}</p>  
             </div>

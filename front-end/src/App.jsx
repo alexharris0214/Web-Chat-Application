@@ -4,8 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import { NavBar } from "./components/NavBar";
 import { SideChatWindow } from "./components/SideChatWindow";
 import { MainWindow } from "./components/MainWindow";
-import { ConversationContext, ConversationProvider } from "./providers/ConversationProvider";
-import { useContext } from "react";
+import { ConversationProvider } from "./providers/ConversationProvider";
 
 function App() {
 

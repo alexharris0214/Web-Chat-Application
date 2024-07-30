@@ -13,51 +13,51 @@ const ConversationProvider = ({ children }) => {
                 messages:[
                     {
                         text:"dummy conversation text11",
-                        recipientId: "412342987",
-                        senderId: "41234213",
+                        recipientId: "0",
+                        senderId: "1",
+                        timeStamp: "sample TimeStamp"
+                    },
+                    {
+                        text:"dummy conversation text11",
+                        recipientId: "0",
+                        senderId: "1",
+                        timeStamp: "sample TimeStamp"
+                    },
+                    {
+                        text:"dummy conversation text11",
+                        recipientId: "1",
+                        senderId: "0",
+                        timeStamp: "sample TimeStamp"
+                    },
+                    {
+                        text:"dummy conversation text11",
+                        recipientId: "0",
+                        senderId: "1",
+                        timeStamp: "sample TimeStamp"
+                    },
+                    {
+                        text:"dummy conversation text11",
+                        recipientId: "1",
+                        senderId: "0",
                         timeStamp: "sample TimeStapm"
                     },
                     {
                         text:"dummy conversation text11",
-                        recipientId: "412342987",
-                        senderId: "41234213",
-                        timeStamp: "sample TimeStapm"
+                        recipientId: "1",
+                        senderId: "0",
+                        timeStamp: "sample TimeStamp"
                     },
                     {
                         text:"dummy conversation text11",
-                        recipientId: "412342987",
-                        senderId: "41234213",
-                        timeStamp: "sample TimeStapm"
+                        recipientId: "0",
+                        senderId: "1",
+                        timeStamp: "sample TimeStamp"
                     },
                     {
                         text:"dummy conversation text11",
-                        recipientId: "412342987",
-                        senderId: "41234213",
-                        timeStamp: "sample TimeStapm"
-                    },
-                    {
-                        text:"dummy conversation text11",
-                        recipientId: "412342987",
-                        senderId: "41234213",
-                        timeStamp: "sample TimeStapm"
-                    },
-                    {
-                        text:"dummy conversation text11",
-                        recipientId: "412342987",
-                        senderId: "41234213",
-                        timeStamp: "sample TimeStapm"
-                    },
-                    {
-                        text:"dummy conversation text11",
-                        recipientId: "412342987",
-                        senderId: "41234213",
-                        timeStamp: "sample TimeStapm"
-                    },
-                    {
-                        text:"dummy conversation text11",
-                        recipientId: "412342987",
-                        senderId: "41234213",
-                        timeStamp: "sample TimeStapm"
+                        recipientId: "0",
+                        senderId: "1",
+                        timeStamp: "sample TimeStamp"
                     },
                 ]
             },
@@ -68,9 +68,9 @@ const ConversationProvider = ({ children }) => {
                 messages:[
                     {
                         text:"dummy conversation text22",
-                        recipientId: "412342987",
-                        senderId: "41234213",
-                        timeStamp: "sample TimeStapm"
+                        recipientId: "0",
+                        senderId: "1",
+                        timeStamp: "sample TimeStamp"
                     }
                 ]
             },
@@ -81,9 +81,9 @@ const ConversationProvider = ({ children }) => {
                 messages:[
                     {
                         text:"dummy conversation text33",
-                        recipientId: "412342987",
-                        senderId: "41234213",
-                        timeStamp: "sample TimeStapm"
+                        recipientId: "0",
+                        senderId: "1",
+                        timeStamp: "sample TimeStamp"
                     }
                 ]
             }
