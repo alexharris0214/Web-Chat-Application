@@ -1,95 +1,35 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
+import axios from 'axios'
+import { API_URL } from "../constans";
 
 const ConversationContext = createContext();
 
 const ConversationProvider = ({ children }) => {
     const userId = "66a908eee5971a9476698682"
-    
+
     const [selectedConversationIndex, setSelectedConversationIndex] = useState(0)
-    const contextValues = {
-        conversations:[
-            {
-                id:"42139087123",
-                firstName:"dummyFirstName1",
-                lastName:"dummyLastName1",
-                messages:[
-                    {
-                        text:"dummy conversation text11",
-                        recipientId: "0",
-                        senderId: "1",
-                        timeStamp: "sample TimeStamp"
-                    },
-                    {
-                        text:"dummy conversation text11",
-                        recipientId: "0",
-                        senderId: "1",
-                        timeStamp: "sample TimeStamp"
-                    },
-                    {
-                        text:"dummy conversation text11",
-                        recipientId: "1",
-                        senderId: "0",
-                        timeStamp: "sample TimeStamp"
-                    },
-                    {
-                        text:"dummy conversation text11",
-                        recipientId: "0",
-                        senderId: "1",
-                        timeStamp: "sample TimeStamp"
-                    },
-                    {
-                        text:"dummy conversation text11",
-                        recipientId: "1",
-                        senderId: "0",
-                        timeStamp: "sample TimeStapm"
-                    },
-                    {
-                        text:"dummy conversation text11",
-                        recipientId: "1",
-                        senderId: "0",
-                        timeStamp: "sample TimeStamp"
-                    },
-                    {
-                        text:"dummy conversation text11",
-                        recipientId: "0",
-                        senderId: "1",
-                        timeStamp: "sample TimeStamp"
-                    },
-                    {
-                        text:"dummy conversation text11",
-                        recipientId: "0",
-                        senderId: "1",
-                        timeStamp: "sample TimeStamp"
-                    },
-                ]
-            },
-            {
-                id:"42139087123",
-                firstName:"dummyFirstName2",
-                lastName:"dummyLastName2",
-                messages:[
-                    {
-                        text:"dummy conversation text22",
-                        recipientId: "0",
-                        senderId: "1",
-                        timeStamp: "sample TimeStamp"
-                    }
-                ]
-            },
-            {
-                id:"42139087123",
-                firstName:"dummyFirstName3",
-                lastName:"dummyLastName3",
-                messages:[
-                    {
-                        text:"dummy conversation text33",
-                        recipientId: "0",
-                        senderId: "1",
-                        timeStamp: "sample TimeStamp"
-                    }
-                ]
+    const [conversations, setConversations] = useState([])
+
+
+    useEffect(() => {
+
+        const fetchConversation  = async () => {
+            const body = {
+                userId
             }
-        ],
+            try{
+                const response = await axios.post(API_URL + "/api/messages/get-convos", body)
+                setConversations(response.data)
+            } catch(err){
+                console.log(err)
+            }
+        }
+        fetchConversation()
+    }, [userId])
+
+    const contextValues = {
+        conversations,
+        setConversations,
         selectedConversationIndex: selectedConversationIndex,
         setSelectedConversationIndex: setSelectedConversationIndex
     }

@@ -7,7 +7,6 @@ import { MainWindow } from "./components/MainWindow";
 import { ConversationProvider } from "./providers/ConversationProvider";
 
 function App() {
-
   return (
     <>
       <NavBar />

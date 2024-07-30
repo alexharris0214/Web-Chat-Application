@@ -1,7 +1,8 @@
 import { MessageComponent } from "../components/MessageComponent"
 
 export const generateWindowHeadingFromConversation = (conversation) => {
-    return `${conversation.firstName} ${conversation.lastName}`
+    console.log(`${conversation.userModels.firstName} ${conversation.userModels.lastName}`)
+    return `${conversation.userModels.firstName} ${conversation.userModels.lastName}`
 }
 
 export const generateMessagesFromConversation = (conversation) => {
