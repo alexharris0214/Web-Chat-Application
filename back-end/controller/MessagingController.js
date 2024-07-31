@@ -2,33 +2,22 @@ import ConversationsModel from "../models/Conversations.js"
 import UserModel from "../models/Users.js"
 import { getUsersForConversation } from "../utils/MessagingUtils.js"
 export const insertMessage = async (req, res) => {
-    const data = 
-        {
-            messages: [
-                {
-                    text:"hi",
-                    recipientId: "0",
-                    senderId: "1",
-                    timeStamp: "d"
-                }
-            ]
-        }
-    const dataUser = 
-        {
-            firstName: "admin",
-            lastName: "admin",
-            email:"admin@admins.com",
-            password:"admin", 
-            conversationIds: [
-                "383838"
-            ]
-        }
-    
-    res.send("hi")
-    const modelUser = UserModel(dataUser)
-    const model = ConversationsModel(data);
-    model.save()
-    modelUser.save()
+    const conversationId = req.body.conversationId
+    const message = req.body.message
+    const receiverId = req.body.receiverId
+    const senderId = req.body.senderId
+    const newMessage = {
+        text:message,
+        receiverId,
+        senderId,
+        timeStamp: new Date()
+    }
+    const newModel = await ConversationsModel.updateOne(
+        {_id: conversationId}, 
+        { $push: { messages: newMessage } }
+    )
+    console.log(newModel)
+
 }
 
 export const getConversations = async (req, res) => {

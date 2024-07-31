@@ -5,7 +5,7 @@ export const generateWindowHeadingFromConversation = (conversation) => {
     return `${conversation.userModels.firstName} ${conversation.userModels.lastName}`
 }
 
-export const generateMessagesFromConversation = (conversation) => {
+export const generateMessagesFromConversation = (conversation, userId) => {
     return(
         conversation.messages.map((message, index) => {
             return(
@@ -14,6 +14,7 @@ export const generateMessagesFromConversation = (conversation) => {
                     timeStamp={message.timeStamp}
                     key={index}
                     senderId = {message.senderId}
+                    userId = {userId}
                 />
             )
         })
