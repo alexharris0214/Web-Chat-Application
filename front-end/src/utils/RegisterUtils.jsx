@@ -1,5 +1,6 @@
 import { API_URL } from "../constans"
 import axios from 'axios'
+
 export const validateRegisterInputs = (firstName, lastName, email, password) => {
     return (firstName.length > 0 && lastName.length > 0 && email.length > 0 && password.length > 0)
 }
@@ -18,10 +19,12 @@ export const registerUser = async (firstName, lastName, email, password) => {
 
     try{
         const response = await axios.post(API_URL + '/api/users/register', body)
-        if(response){
-            console.log(response)
+        if(response.status == 200){
+            return response.data.userId
         }
+        return -1
     } catch(err){
         console.log(err)
+        return -1
     }
 }

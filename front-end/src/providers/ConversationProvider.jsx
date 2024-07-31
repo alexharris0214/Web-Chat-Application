@@ -1,15 +1,15 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 import axios from 'axios'
 import { API_URL } from "../constans";
+import { AuthContext } from "./AuthProvider";
 
 const ConversationContext = createContext();
 
 const ConversationProvider = ({ children }) => {
-    const userId = "66a908eee5971a9476698682"
+    const {userId} = useContext(AuthContext)
 
     const [selectedConversationIndex, setSelectedConversationIndex] = useState(0)
     const [conversations, setConversations] = useState([])
-
 
     useEffect(() => {
 

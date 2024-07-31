@@ -1,16 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useContext} from "react";
 import {registerUser } from "../utils/RegisterUtils";
+import { AuthContext } from "../providers/AuthProvider";
 
 export const RegisterPage = () => {
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    
-    const handleRegisterUser = () => {
-      registerUser(firstName, lastName, email, password)
+
+    const {setUserId} = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    const handleRegisterUser = async (event) => {
+      event.preventDefault()
+      const response = await registerUser(firstName, lastName, email, password)
+      if(response != -1){
+        setUserId(response)
+        navigate("/home")
+      } else {
+        alert("Something went wrong")
+      } 
     }
     return (
     <div className="d-flex align-items-center justify-content-center vh-100">
@@ -42,9 +53,7 @@ export const RegisterPage = () => {
             <div className="form-group">
               <label htmlFor="email">Email address</label>
               <input
-                type="email"
                 className="form-control"
-                aria-describedby="emailHelp"
                 placeholder="Enter email"
                 onChange={(event) => setEmail(event.target.value)}
               />
